@@ -1,13 +1,13 @@
-def get_max(numbers_list):
-    max_number = numbers_list[0]
+def get_max(values_list):
+    max_value = values_list[0]
 
-    for number in numbers_list:
-        if number > max_number:
-            max_number = number
+    for value in values_list:
+        if value > max_value:
+            max_value = value
 
-    return max_number
+    return max_value
 
 
-numbers = [2.5, -2.9, 3, -90.8]
+array = [2.5, -2.9, 3, -90.8]
 
-print(f'Максимальное число в списке = {get_max(numbers)}')
+print(f'Максимальное значение в списке = {get_max(array)}')

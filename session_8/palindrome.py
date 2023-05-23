@@ -1,17 +1,16 @@
 def is_palindrome(string):
     forward_index = 0
-    reverse_index = -1
+    reverse_index = len(string) - 1
+    lower_case_string = string.lower()
 
-    while forward_index < len(string) and reverse_index > 0:
-        while not string[forward_index].isalpha():
+    while forward_index < len(string) // 2:
+        while not lower_case_string[forward_index].isalpha() and forward_index < len(string) - 1:
             forward_index += 1
-            continue
 
-        while not string[reverse_index].isalpha():
+        while not lower_case_string[reverse_index].isalpha() and reverse_index > 0:
             reverse_index -= 1
-            continue
 
-        if string[forward_index].lower() != string[reverse_index].lower():
+        if lower_case_string[forward_index] != lower_case_string[reverse_index]:
             return False
 
         forward_index += 1

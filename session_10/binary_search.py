@@ -7,7 +7,8 @@ def binary_search_v_1(array, value, left, right):
     if array[middle] > value:
         right = middle - 1
         return binary_search_v_1(array, value, left, right)
-    elif array[middle] < value:
+
+    if array[middle] < value:
         left = middle + 1
         return binary_search_v_1(array, value, left, right)
 
@@ -28,7 +29,7 @@ def binary_search_v_2(array, value):
             right = middle - 1
             continue
 
-        elif array[middle] < value:
+        if array[middle] < value:
             left = middle + 1
             continue
 
