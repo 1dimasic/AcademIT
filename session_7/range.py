@@ -33,24 +33,27 @@ start_point = float(input('Введите начало интервала: '))
 end_point = float(input('Введите конец интервала: '))
 point_a = float(input('Введите координату точки А: '))
 
-segment = Range(start_point, end_point)
+verifiable_range = Range(start_point, end_point)
 
-if segment.is_inside(point_a):
-    print(f'Точка A находится внутри интервала [{segment.start} ; {segment.end}]')
+if verifiable_range.is_inside(point_a):
+    print(f'Точка A находится внутри интервала [{verifiable_range.start} ; {verifiable_range.end}]')
     # создаем два новых объекта экземпляра класса Range
-    first_segment = Range(start_point, point_a)
-    second_segment = Range(point_a, end_point)
+    verifiable_range_1 = Range(start_point, point_a)
+    verifiable_range_2 = Range(point_a, end_point)
     print(
-        f'Расстояние от начала интервала до точки A = {first_segment.get_length():.2f}, '
-        f'расстояние от точки A до конца интервала = {second_segment.get_length():.2f}')
+        f'Расстояние от начала интервала до точки A = {verifiable_range_1.get_length():.2f}, '
+        f'расстояние от точки A до конца интервала = {verifiable_range_2.get_length():.2f}')
 else:
-    print(f'Точка А не находится внутри интервала [{segment.start};{segment.end}]')
+    print(f'Точка А не находится внутри интервала [{verifiable_range.start};{verifiable_range.end}]')
 
     if point_a < start_point:
         # изменяем значение атрибута start экземпляра segment
-        segment.start = point_a
-        print(f'Новый интервал = [{segment.start};{segment.end}], его длина = {segment.get_length():.2f}')
+        verifiable_range.start = point_a
+        print(f'Новый интервал = [{verifiable_range.start};{verifiable_range.end}], '
+              f'его длина = {verifiable_range.get_length():.2f}')
     else:
         # изменяем значение атрибута end экземпляра segment
-        segment.end = point_a
-        print(f'Новый диапазон = [{segment.start};{segment.end}], его длина = {segment.get_length():.2f}')
+        verifiable_range.end = point_a
+        print(
+            f'Новый диапазон = [{verifiable_range.start};{verifiable_range.end}], '
+            f'его длина = {verifiable_range.get_length():.2f}')
