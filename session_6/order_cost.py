@@ -1,5 +1,5 @@
-FOR_DISCOUNT_MIN_COUNT = 10
-FOR_DISCOUNT_MIN_ORDER_COST = 1000
+MIN_COUNT_FOR_DISCOUNT = 10
+MIN_ORDER_COST_FOR_DISCOUNT = 1000
 MIN_DISCOUNT = 5
 MAX_DISCOUNT = 10
 HUNDRED_PERCENT = 100
@@ -9,10 +9,10 @@ def get_order_cost(price_1, count_1, price_2, count_2):
     order_cost = price_1 * count_1 + price_2 * count_2
     total_count = count_1 + count_2
 
-    if total_count >= FOR_DISCOUNT_MIN_COUNT and order_cost >= FOR_DISCOUNT_MIN_ORDER_COST:
+    if total_count >= MIN_COUNT_FOR_DISCOUNT and order_cost >= MIN_ORDER_COST_FOR_DISCOUNT:
         return order_cost * (1 - MAX_DISCOUNT / HUNDRED_PERCENT)
 
-    if total_count >= FOR_DISCOUNT_MIN_COUNT or order_cost >= FOR_DISCOUNT_MIN_ORDER_COST:
+    if total_count >= MIN_COUNT_FOR_DISCOUNT or order_cost >= MIN_ORDER_COST_FOR_DISCOUNT:
         return order_cost * (1 - MIN_DISCOUNT / HUNDRED_PERCENT)
 
     return order_cost
