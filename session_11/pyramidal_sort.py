@@ -5,35 +5,36 @@ def get_max_element_index_value(number_1, number_2):
     return 2
 
 
-def gf(array, i, j=0):
-    max_element_index_value = 0
-    while 2 * i + 1 < len(array) - j:
-        if 2 * i + 2 >= len(array) - j:
-            if l[i] < l[2 * i + 1]:
-                l[i], l[2 * i + 1] = l[2 * i + 1], l[i]
-            break
+def do_sifting(array, current_index, sorted_array_length=0):
+    index_value = 0
 
-        if l[i] < l[2 * i + 1] or l[i] < l[2 * i + 1]:
-            max_element_index_value = get_max_element_index_value(l[2 * i + 1], l[2 * i + 2])
-            l[i], l[2 * i + max_element_index_value] = l[2 * i + max_element_index_value], l[i]
+    while 2 * current_index + 1 < len(array) - sorted_array_length:
+        index_1 = 2 * current_index + 1
+        index_2 = 2 * current_index + 2
 
-        i = 2 * i + max_element_index_value
+        if 2 * current_index + 2 >= len(array) - sorted_array_length:
+            if array[current_index] < array[index_1]:
+                array[current_index], array[index_1] = array[index_1], array[current_index]
 
+            return
 
-def do_sifting(array, j):
-    i = 0
-    gf(array, i, j)
+        if array[current_index] < array[index_1] or array[current_index] < array[index_2]:
+            index_value = get_max_element_index_value(array[index_1], array[index_2])
+            array[current_index], array[2 * current_index + index_value] = \
+                array[2 * current_index + index_value], array[current_index]
 
+        current_index = 2 * current_index + index_value
 
-def g(array):
-    for j in range(len(l) // 2 - 1, -1, -1):
-        gf(array, j)
+    return
 
 
-l = [1, 4, 5, 3, 4, 9, 1, 10]
+numbers_list = [10, 2, 3, 6, 8, 7, 1, 12]
 
-g(l)
-for i in range(len(l)):
-    l[0], l[len(l) - 1 - i] = l[len(l) - 1 - i], l[0]
-    do_sifting(l, i + 1)
-print(l)
+for i in range(len(numbers_list) // 2 - 1, -1, -1):
+    do_sifting(numbers_list, i)
+
+for i in range(len(numbers_list) - 1):
+    numbers_list[0], numbers_list[len(numbers_list) - 1 - i] = numbers_list[len(numbers_list) - 1 - i], numbers_list[0]
+    do_sifting(numbers_list, 0, i + 1)
+
+print(numbers_list)
