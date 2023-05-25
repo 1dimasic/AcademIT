@@ -10,7 +10,7 @@ def get_min_value_index(array, start_index):
     return min_value_index
 
 
-numbers_list = [8, 7, 6, 5]
+numbers_list = [8, 7, 6, 5, 4]
 
 for j in range(len(numbers_list) - 1):
     index = get_min_value_index(numbers_list, j)

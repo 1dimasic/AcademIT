@@ -29,7 +29,7 @@ def do_sifting(array, current_index, sorted_array_length=0):
             return
 
 
-numbers_list = [1000000, -2562, 3, 6, 8, 7, 1, 12]
+numbers_list = [1, -25, 3, 6, 8, 7, 1, 12]
 
 for i in range(len(numbers_list) // 2 - 1, -1, -1):
     do_sifting(numbers_list, i)
