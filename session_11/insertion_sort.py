@@ -1,4 +1,4 @@
-def do_sorting_v_1(array):
+def insertion_sort_v_1(array):
     for i in range(1, len(array)):
         temp = array[i]
 
@@ -10,7 +10,7 @@ def do_sorting_v_1(array):
             array[j + 1] = array[j]
 
 
-def do_sorting_v_2(array):
+def insertion_sort_v_2(array):
     for i in range(1, len(array)):
         temp = array[i]
         j = i - 1
@@ -23,9 +23,9 @@ def do_sorting_v_2(array):
 
 
 numbers_list = [18, 5, 3, -10]
-do_sorting_v_1(numbers_list)
-print(f'Список после сортировки выбором: {numbers_list}')
+insertion_sort_v_1(numbers_list)
+print(f'Отсортированный список: {numbers_list}')
 
 numbers_list = [18, 5, 3, -10]
-do_sorting_v_2(numbers_list)
-print(f'Список после сортировки выбором: {numbers_list}')
+insertion_sort_v_2(numbers_list)
+print(f'Отсортированный список: {numbers_list}')

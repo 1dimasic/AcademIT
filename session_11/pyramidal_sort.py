@@ -29,7 +29,7 @@ def do_sifting(array, current_index, sorted_array_length=0):
             return
 
 
-numbers_list = [1, -25, 3, 6, 8, 7, 1, 12]
+numbers_list = [100, -25, 3, 6, 8, 7, 1, 12]
 
 for i in range(len(numbers_list) // 2 - 1, -1, -1):
     do_sifting(numbers_list, i)
@@ -38,4 +38,4 @@ for i in range(len(numbers_list) - 1):
     numbers_list[0], numbers_list[len(numbers_list) - 1 - i] = numbers_list[len(numbers_list) - 1 - i], numbers_list[0]
     do_sifting(numbers_list, 0, i + 1)
 
-print(numbers_list)
+print(f'Отсортированный список: {numbers_list}')

@@ -10,10 +10,10 @@ def get_min_value_index(array, start_index):
     return min_value_index
 
 
-numbers_list = [8, 7, 6, 5, 4]
+numbers_list = [8, 7, 6, 5, -4]
 
 for j in range(len(numbers_list) - 1):
     index = get_min_value_index(numbers_list, j)
     numbers_list[j], numbers_list[index] = numbers_list[index], numbers_list[j]
 
-print(f'Список после сортировки выбором: {numbers_list}')
+print(f'Отсортированный список: {numbers_list}')

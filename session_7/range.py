@@ -38,11 +38,11 @@ verifiable_range = Range(start_point, end_point)
 if verifiable_range.is_inside(point_a):
     print(f'Точка A находится внутри интервала [{verifiable_range.start} ; {verifiable_range.end}]')
     # создаем два новых объекта экземпляра класса Range
-    verifiable_range_1 = Range(start_point, point_a)
-    verifiable_range_2 = Range(point_a, end_point)
+    range_1 = Range(start_point, point_a)
+    range_2 = Range(point_a, end_point)
     print(
-        f'Расстояние от начала интервала до точки A = {verifiable_range_1.get_length():.2f}, '
-        f'расстояние от точки A до конца интервала = {verifiable_range_2.get_length():.2f}')
+        f'Расстояние от начала интервала до точки A = {range_1.get_length():.2f}, '
+        f'расстояние от точки A до конца интервала = {range_2.get_length():.2f}')
 else:
     print(f'Точка А не находится внутри интервала [{verifiable_range.start};{verifiable_range.end}]')
 

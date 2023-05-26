@@ -1,4 +1,4 @@
-def do_sorting(array):
+def bubble_sort(array):
     for j in range(len(array) - 1):
         exchanges_count = 0
 
@@ -12,5 +12,5 @@ def do_sorting(array):
 
 
 numbers_list = [8, 5, 3, 2, 1, -1]
-do_sorting(numbers_list)
+bubble_sort(numbers_list)
 print(f'Отсортированный список: {numbers_list}')
