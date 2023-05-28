@@ -1,16 +1,16 @@
 # по возрастанию
-def is_ascending_sorted(array):
-    for i in range(len(array) - 1):
-        if array[i] > array[i + 1]:
+def is_ascending_sorted(values_list):
+    for i in range(len(values_list) - 1):
+        if values_list[i] > values_list[i + 1]:
             return False
 
     return True
 
 
 # по убыванию
-def is_descending_sorted(array):
-    for i in range(len(array) - 1):
-        if array[i] < array[i + 1]:
+def is_descending_sorted(values_list):
+    for i in range(len(values_list) - 1):
+        if values_list[i] < values_list[i + 1]:
             return False
 
     return True

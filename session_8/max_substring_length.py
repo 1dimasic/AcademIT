@@ -1,4 +1,7 @@
 def get_max_substring_length(string):
+    if not string:
+        return 0
+
     max_length = 1
     current_length = 1
     lower_case_string = string.lower()
@@ -17,9 +20,5 @@ def get_max_substring_length(string):
 
 
 entered_string = input('Введите строку: ')
-
-if entered_string:
-    max_substring_length = get_max_substring_length(entered_string)
-    print(f'Максимальная длина подстроки из одного и того же символа = {max_substring_length}')
-else:
-    print('Вы не ввели ни одного символа!')
+max_substring_length = get_max_substring_length(entered_string)
+print(f'Максимальная длина подстроки из одного и того же символа = {max_substring_length}')

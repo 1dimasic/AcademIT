@@ -1,8 +1,8 @@
-def reverse_list(array):
-    for i in range(len(array) // 2):
-        array[i], array[-i - 1] = array[-i - 1], array[i]
+def reverse_list(values_list):
+    for i in range(len(values_list) // 2):
+        values_list[i], values_list[-i - 1] = values_list[-i - 1], values_list[i]
 
-    return array
+    return values_list
 
 
 numbers_list = [4, 6, 8, 10, 7]

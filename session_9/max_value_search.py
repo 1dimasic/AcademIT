@@ -8,6 +8,6 @@ def get_max(values_list):
     return max_value
 
 
-array = [2.5, -2.9, 3, -90.8]
+numbers_list = [2.5, -2.9, 3, -90.8]
 
-print(f'Максимальное значение в списке = {get_max(array)}')
+print(f'Максимальное значение в списке = {get_max(numbers_list)}')
