@@ -5,12 +5,10 @@ def binary_search_with_recursion(array, value, left, right):
     middle = (left + right) // 2
 
     if array[middle] > value:
-        new_right = middle - 1
-        return binary_search_with_recursion(array, value, left, new_right)
+        return binary_search_with_recursion(array, value, left, middle - 1)
 
     if array[middle] < value:
-        new_left = middle + 1
-        return binary_search_with_recursion(array, value, new_left, right)
+        return binary_search_with_recursion(array, value, middle + 1, right)
 
     return middle
 

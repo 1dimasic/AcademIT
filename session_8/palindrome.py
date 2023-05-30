@@ -1,4 +1,7 @@
 def is_palindrome(string):
+    if not string:
+        return False
+
     forward_index = 0
     reverse_index = len(string) - 1
     lower_case_string = string.lower()

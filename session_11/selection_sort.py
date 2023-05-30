@@ -1,19 +1,19 @@
-def get_min_value_index(array, start_index):
-    min_value = array[start_index]
+def get_min_value_index(_list, start_index):
     min_value_index = start_index
 
-    for i in range(start_index, len(array)):
-        if array[i] < min_value:
-            min_value = array[i]
+    for i in range(start_index + 1, len(_list)):
+        if _list[i] < _list[min_value_index]:
             min_value_index = i
 
     return min_value_index
 
 
-numbers_list = [8, 7, 6, 5, -4]
+def selection_sort(_list):
+    for i in range(len(_list) - 1):
+        min_value_index = get_min_value_index(_list, i)
+        _list[i], _list[min_value_index] = _list[min_value_index], _list[i]
 
-for j in range(len(numbers_list) - 1):
-    index = get_min_value_index(numbers_list, j)
-    numbers_list[j], numbers_list[index] = numbers_list[index], numbers_list[j]
 
+numbers_list = [8, -3, 2, 6, 10, 0]
+selection_sort(numbers_list)
 print(f'Отсортированный список: {numbers_list}')

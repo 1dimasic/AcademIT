@@ -1,36 +1,37 @@
-def quick_sort(array, left, right):
+def quick_sort(_list, left, right):
+    if not _list:
+        return
+
     if right - left + 1 == 1:
         return
 
     if right - left + 1 == 2:
-        if array[right] < array[left]:
-            array[right], array[left] = array[left], array[right]
+        if _list[right] < _list[left]:
+            _list[right], _list[left] = _list[left], _list[right]
 
         return
 
-    support_element = array[left]
+    support_element = _list[left]
     i = left
     j = right
 
     while i <= j:
-        while array[i] < support_element:
+        while _list[i] < support_element:
             i += 1
 
-        while array[j] > support_element:
+        while _list[j] > support_element:
             j -= 1
 
         if i <= j:
-            array[i], array[j] = array[j], array[i]
+            _list[i], _list[j] = _list[j], _list[i]
             i += 1
             j -= 1
 
     if i < right:
-        quick_sort(array, i, right)
+        quick_sort(_list, i, right)
 
     if j > left:
-        quick_sort(array, left, j)
-
-    return
+        quick_sort(_list, left, j)
 
 
 numbers_list = [300, 5, 1, 24, 8, -5, 0]
