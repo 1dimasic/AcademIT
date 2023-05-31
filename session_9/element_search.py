@@ -17,7 +17,7 @@ def get_element_index_v_2(values_list, element):
 numbers_list = [-5, 6, 2, 89, 9]
 functions = (get_element_index_v_1, get_element_index_v_2)
 
-print("Список ", numbers_list)
+print("Список", numbers_list)
 
 for function in functions:
     entered_number = int(input('Введите число: '))
