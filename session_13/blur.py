@@ -18,8 +18,8 @@ def blur(pixels, matrix, x, y):
     return round(red), round(green), round(blue)
 
 
-COEFFICIENT = 1 / 9
-DIMENSION = 3
+COEFFICIENT = 1 / 10000
+DIMENSION = 100
 blur_matrix = [[COEFFICIENT] * DIMENSION for i in range(DIMENSION)]
 
 input_image = Image.open('image.jpg')

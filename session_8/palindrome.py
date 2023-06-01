@@ -22,13 +22,7 @@ def is_palindrome(string):
     return True
 
 
-while True:
-    entered_string = input('Введите строку: ')
-
-    if not entered_string:
-        continue
-
-    break
+entered_string = input('Введите строку: ')
 
 if is_palindrome(entered_string):
     print('Введенная строка является палиндромом')
