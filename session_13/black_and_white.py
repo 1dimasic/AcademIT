@@ -1,12 +1,9 @@
 from PIL import Image
 
 image = Image.open("image.jpg")
-
 pixels = image.load()
-
 width, height = image.size
 
-# Проходим по всем пикселям картинки
 for x in range(width):
     for y in range(height):
         pixel = pixels[x, y]

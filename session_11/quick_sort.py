@@ -1,8 +1,5 @@
 def quick_sort(_list, left, right):
-    if not _list:
-        return
-
-    if right - left + 1 == 1:
+    if right == 0 or right == -1:
         return
 
     if right - left + 1 == 2:

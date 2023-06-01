@@ -1,16 +1,11 @@
-def get_min_value_index(_list, start_index):
-    min_value_index = start_index
-
-    for i in range(start_index + 1, len(_list)):
-        if _list[i] < _list[min_value_index]:
-            min_value_index = i
-
-    return min_value_index
-
-
 def selection_sort(_list):
     for i in range(len(_list) - 1):
-        min_value_index = get_min_value_index(_list, i)
+        min_value_index = i
+
+        for j in range(i + 1, len(_list)):
+            if _list[j] < _list[min_value_index]:
+                min_value_index = j
+
         _list[i], _list[min_value_index] = _list[min_value_index], _list[i]
 
 

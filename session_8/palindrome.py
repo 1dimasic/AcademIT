@@ -1,5 +1,5 @@
 def is_palindrome(string):
-    if not string:
+    if string.isspace():
         return False
 
     forward_index = 0
@@ -22,7 +22,13 @@ def is_palindrome(string):
     return True
 
 
-entered_string = input('Введите строку: ')
+while True:
+    entered_string = input('Введите строку: ')
+
+    if not entered_string:
+        continue
+
+    break
 
 if is_palindrome(entered_string):
     print('Введенная строка является палиндромом')
