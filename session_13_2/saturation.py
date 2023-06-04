@@ -1,4 +1,4 @@
-def sat(colors, value):
+def saturation(colors, value):
     result = [color + value for color in colors]
 
     for i in range(len(result)):

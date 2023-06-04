@@ -1,7 +1,7 @@
 from PIL import Image
 
 
-def watercolor(pixels, x, y):
+def water_colorize(pixels, x, y):
     red = []
     green = []
     blue = []
@@ -32,7 +32,7 @@ temp_pixels = temp_image.load()
 
 for coordinate_x in range(input_width):
     for coordinate_y in range(input_height):
-        output_pixels[coordinate_x, coordinate_y] = watercolor(temp_pixels, coordinate_x, coordinate_y)
+        output_pixels[coordinate_x, coordinate_y] = water_colorize(temp_pixels, coordinate_x, coordinate_y)
 
 output_image.resize((input_width, input_height))
 output_image.save("output.jpg")
