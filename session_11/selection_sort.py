@@ -1,14 +1,14 @@
-def selection_sort(_list):
-    for i in range(len(_list) - 1):
-        min_value_index = i
+def selection_sort(numbers_list):
+    for i in range(len(numbers_list) - 1):
+        min_number_index = i
 
-        for j in range(i + 1, len(_list)):
-            if _list[j] < _list[min_value_index]:
-                min_value_index = j
+        for j in range(i + 1, len(numbers_list)):
+            if numbers_list[j] < numbers_list[min_number_index]:
+                min_number_index = j
 
-        _list[i], _list[min_value_index] = _list[min_value_index], _list[i]
+        numbers_list[i], numbers_list[min_number_index] = numbers_list[min_number_index], numbers_list[i]
 
 
-numbers_list = [8, -3, 2, 6, 10, 0]
-selection_sort(numbers_list)
-print(f'Отсортированный список: {numbers_list}')
+values_list = [8, -3, 2, 6, 10, 0]
+selection_sort(values_list)
+print(f'Отсортированный список: {values_list}')

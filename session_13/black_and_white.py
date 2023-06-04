@@ -10,4 +10,4 @@ for x in range(width):
         rgb_result = round(0.3 * pixel[0] + 0.59 * pixel[1] + 0.11 * pixel[2])
         pixels[x, y] = (rgb_result, rgb_result, rgb_result)
 
-image.save("out.png")
+image.save("image_black_and_white.jpg")

@@ -26,4 +26,4 @@ for x in range(width):
         pixels[x, y] = (MAX_RGB - pixel[0], MAX_RGB - pixel[1], MAX_RGB - pixel[2])
 
 # Сохраняем картинку в файл
-image.save("out.png")
+image.save("image_invert.jpg")

@@ -7,19 +7,18 @@ def blur(pixels, matrix, x, y):
     blue = 0
     size = len(matrix)
 
-    for i in range(x - size // 2, x + size // 2 + 1):
-        for j in range(y - size // 2, y + size // 2 + 1):
-            if i != x or j != y:
-                pixel = pixels[i, j]
-                red += pixel[0] * matrix[i % size][j % size]
-                green += pixel[1] * matrix[i % size][j % size]
-                blue += pixel[2] * matrix[i % size][j % size]
+    for i, j in zip(range(x - size // 2, x + size // 2 + 1), range(size)):
+        for k, n in zip(range(y - size // 2, y + size // 2 + 1), range(size)):
+            pixel = pixels[i, k]
+            red += pixel[0] * matrix[j][n]
+            green += pixel[1] * matrix[j][n]
+            blue += pixel[2] * matrix[j][n]
 
     return round(red), round(green), round(blue)
 
 
-COEFFICIENT = 1 / 10000
-DIMENSION = 100
+COEFFICIENT = 1 / 25
+DIMENSION = 5
 blur_matrix = [[COEFFICIENT] * DIMENSION for i in range(DIMENSION)]
 
 input_image = Image.open('image.jpg')
@@ -36,4 +35,4 @@ for coordinate_x in range(input_width):
         output_pixels[coordinate_x, coordinate_y] = blur(temp_pixels, blur_matrix, coordinate_x, coordinate_y)
 
 output_image.resize((input_width, input_height))
-output_image.save("output_image_3x3.png")
+output_image.save("output_image_5x5.png")
