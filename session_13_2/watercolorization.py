@@ -1,38 +1,68 @@
 from PIL import Image
 
 
-def water_colorize(pixels, x, y):
-    red = []
-    green = []
-    blue = []
+def satiate(colors):
+    rgb_result = [color for color in colors]
 
-    for i in range(x - 5, x + 5 + 1):
-        for j in range(y - 5, y + 5 + 1):
-            pixel = pixels[i, j]
-            red.append(pixel[0])
-            green.append(pixel[1])
-            blue.append(pixel[2])
+    for i in range(len(rgb_result)):
+        if rgb_result[i] < 0:
+            rgb_result[i] = 0
 
-    red.sort()
-    green.sort()
-    blue.sort()
+        if rgb_result[i] > 255:
+            rgb_result[i] = 255
 
-    return red[12], green[12], blue[12]
+    return tuple(rgb_result)
 
+
+size = 5
+size_half = size // 2
+result = size ** 2 // 2
 
 input_image = Image.open('image.jpg')
-input_width, input_height = input_image.size
-input_pixels = input_image.load()
+width, height = input_image.size
+pixels = input_image.load()
 
-output_image = input_image.copy()
-output_pixels = output_image.load()
+output_image_1 = input_image.copy()
+output_pixels_1 = output_image_1.load()
 
-temp_image = input_image.resize((input_width + 5, input_height + 5))
-temp_pixels = temp_image.load()
+for x in range(size_half, width - size_half):
+    for y in range(size_half, height - size_half):
+        red = []
+        green = []
+        blue = []
 
-for coordinate_x in range(input_width):
-    for coordinate_y in range(input_height):
-        output_pixels[coordinate_x, coordinate_y] = water_colorize(temp_pixels, coordinate_x, coordinate_y)
+        for i in range(size):
+            for j in range(size):
+                pixel = pixels[x - size_half + i, y - size_half + j]
+                red.append(pixel[0])
+                green.append(pixel[1])
+                blue.append(pixel[2])
 
-output_image.resize((input_width, input_height))
-output_image.save("output.jpg")
+        red.sort()
+        green.sort()
+        blue.sort()
+        output_pixels_1[x, y] = red[result], green[result], blue[result]
+
+output_image_2 = output_image_1.copy()
+output_pixels_2 = output_image_2.load()
+
+matrix = [[0, -1, 0], [-1, 5, -1], [0, -1, 0]]
+size = len(matrix)
+size_half = size // 2
+
+for x in range(size_half, width - size_half):
+    for y in range(size_half, height - size_half):
+        red = 0
+        green = 0
+        blue = 0
+
+        for i in range(size):
+            for j in range(size):
+                pixel = output_pixels_1[x - size_half + i, y - size_half + j]
+                red += pixel[0] * matrix[i][j]
+                green += pixel[1] * matrix[i][j]
+                blue += pixel[2] * matrix[i][j]
+
+        output_pixels_2[x, y] = satiate((round(red), round(green), round(blue)))
+
+output_image_2.crop((size_half, size_half, width - size_half, height - size_half)).save('output_image.jpg')

@@ -31,6 +31,6 @@ def quick_sort(numbers_list, left, right):
         quick_sort(numbers_list, left, j)
 
 
-values_list = [300, 5, 1, 24, 8, -5, 0]
+values_list = [300]#, 5, 1, 24, 8, -5, 0]
 quick_sort(values_list, 0, len(values_list) - 1)
 print(f'Отсортированный список: {values_list}')

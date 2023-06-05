@@ -1,17 +1,17 @@
 def is_palindrome(string):
-    if string.isspace():
-        return False
-
     forward_index = 0
     reverse_index = len(string) - 1
     lower_case_string = string.lower()
 
-    while forward_index < len(string) // 2:
+    while forward_index < len(string) // 2 or reverse_index > len(string) // 2:
         while not lower_case_string[forward_index].isalpha() and forward_index < len(string) - 1:
             forward_index += 1
 
         while not lower_case_string[reverse_index].isalpha() and reverse_index > 0:
             reverse_index -= 1
+
+        if forward_index == len(string) - 1 and reverse_index == 0:
+            return True
 
         if lower_case_string[forward_index] != lower_case_string[reverse_index]:
             return False
