@@ -1,36 +1,36 @@
-def quick_sort(numbers_list, left, right):
-    if right <= 0:
+def quick_sort(values_list, left, right):
+    if right - left + 1 == 1 or not values_list:
         return
 
     if right - left + 1 == 2:
-        if numbers_list[right] < numbers_list[left]:
-            numbers_list[right], numbers_list[left] = numbers_list[left], numbers_list[right]
+        if values_list[right] < values_list[left]:
+            values_list[right], values_list[left] = values_list[left], values_list[right]
 
         return
 
-    support_element = numbers_list[left]
+    support_element = values_list[left]
     i = left
     j = right
 
     while i <= j:
-        while numbers_list[i] < support_element:
+        while values_list[i] < support_element:
             i += 1
 
-        while numbers_list[j] > support_element:
+        while values_list[j] > support_element:
             j -= 1
 
         if i <= j:
-            numbers_list[i], numbers_list[j] = numbers_list[j], numbers_list[i]
+            values_list[i], values_list[j] = values_list[j], values_list[i]
             i += 1
             j -= 1
 
     if i < right:
-        quick_sort(numbers_list, i, right)
+        quick_sort(values_list, i, right)
 
     if j > left:
-        quick_sort(numbers_list, left, j)
+        quick_sort(values_list, left, j)
 
 
-values_list = [300]#, 5, 1, 24, 8, -5, 0]
-quick_sort(values_list, 0, len(values_list) - 1)
-print(f'Отсортированный список: {values_list}')
+list_to_sort = [7, 8, 7, 6, 5]
+quick_sort(list_to_sort, 0, len(list_to_sort) - 1)
+print(f'Отсортированный список: {list_to_sort}')
