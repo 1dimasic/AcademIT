@@ -1,5 +1,5 @@
 def quick_sort(values_list, left, right):
-    if right - left + 1 == 1 or not values_list:
+    if len(values_list) < 2:
         return
 
     if right - left + 1 == 2:
