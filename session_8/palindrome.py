@@ -3,14 +3,14 @@ def is_palindrome(string):
     reverse_index = len(string) - 1
     lower_case_string = string.lower()
 
-    while forward_index < len(string) // 2 or reverse_index > len(string) // 2:
-        while not lower_case_string[forward_index].isalpha() and forward_index < len(string) - 1:
+    while forward_index < reverse_index:
+        while not lower_case_string[forward_index].isalpha() and forward_index < reverse_index:
             forward_index += 1
 
-        while not lower_case_string[reverse_index].isalpha() and reverse_index > 0:
+        while not lower_case_string[reverse_index].isalpha() and reverse_index > forward_index:
             reverse_index -= 1
 
-        if forward_index == len(string) - 1 and reverse_index == 0:
+        if forward_index >= reverse_index:
             return True
 
         if lower_case_string[forward_index] != lower_case_string[reverse_index]:
