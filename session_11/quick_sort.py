@@ -1,5 +1,5 @@
 def quick_sort(values_list, left, right):
-    if len(values_list) < 2:
+    if right <= left:
         return
 
     if right - left + 1 == 2:
@@ -31,6 +31,6 @@ def quick_sort(values_list, left, right):
         quick_sort(values_list, left, j)
 
 
-list_to_sort = [7, 8, 7, 6, 5]
+list_to_sort = [2, 8, 7, -5, 1]
 quick_sort(list_to_sort, 0, len(list_to_sort) - 1)
 print(f'Отсортированный список: {list_to_sort}')

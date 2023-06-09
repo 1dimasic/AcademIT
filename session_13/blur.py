@@ -1,21 +1,23 @@
 from PIL import Image
 
 
-def satiate(colors, brightness):
-    rgb_result = [color + brightness for color in colors]
+def saturate(colors):
+    rgb_result = [color for color in colors]
 
     for i in range(len(rgb_result)):
         if rgb_result[i] < 0:
             rgb_result[i] = 0
 
-        if rgb_result[i] > 255:
+        elif rgb_result[i] > 255:
             rgb_result[i] = 255
+
+        else:
+            rgb_result[i] = round(rgb_result[i])
 
     return tuple(rgb_result)
 
 
-DIMENSION = 5
-BRIGHTNESS = 30
+DIMENSION = 10
 matrix = [[1 / DIMENSION ** 2] * DIMENSION for i in range(DIMENSION)]
 size = len(matrix)
 size_half = size // 2
@@ -40,6 +42,6 @@ for x in range(size_half, width - size_half):
                 green += pixel[1] * matrix[i][j]
                 blue += pixel[2] * matrix[i][j]
 
-        output_pixels[x, y] = satiate((round(red), round(green), round(blue)), BRIGHTNESS)
+        output_pixels[x, y] = saturate((red, green, blue))
 
 output_image.crop((size_half, size_half, width - size_half, height - size_half)).save('output_image.jpg')
