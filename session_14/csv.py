@@ -1,16 +1,16 @@
-def f(line):
-    c = []
-    b = -1
-
-    while True:
-        b = line.find('"', b + 1)
-        if b != -1:
-            c.append(b)
-            continue
-
-        break
-
-    return c
+# def f(line):
+#     c = []
+#     b = -1
+#
+#     while True:
+#         b = line.find('"', b + 1)
+#         if b != -1:
+#             c.append(b)
+#             continue
+#
+#         break
+#
+#     return c
 
 
 with open('input.csv', 'r', encoding='utf-8') as csv_file, open('output.html', 'w') as html_file:

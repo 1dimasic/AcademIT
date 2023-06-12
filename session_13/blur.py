@@ -2,22 +2,20 @@ from PIL import Image
 
 
 def saturate(colors):
-    rgb_result = [color for color in colors]
+    rgb_result = list(colors)
 
     for i in range(len(rgb_result)):
-        if rgb_result[i] < 0:
+        if rgb_result[i] <= 0:
             rgb_result[i] = 0
-
-        elif rgb_result[i] > 255:
+        elif rgb_result[i] >= 255:
             rgb_result[i] = 255
-
         else:
             rgb_result[i] = round(rgb_result[i])
 
     return tuple(rgb_result)
 
 
-DIMENSION = 10
+DIMENSION = 8
 matrix = [[1 / DIMENSION ** 2] * DIMENSION for i in range(DIMENSION)]
 size = len(matrix)
 size_half = size // 2
